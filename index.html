@@ -1,36 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DATKEN</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DATKEN.dev | Landing Page</title>
+  <meta name="description" content="Build your next enterprise platform on a stronger digital foundation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050b14;
+      --bg-2: #091321;
+      --panel: rgba(255,255,255,0.05);
+      --line: rgba(255,255,255,0.10);
+      --text: #eef4ff;
+      --muted: #9db0cb;
+      --primary: #73a7ff;
+      --primary-2: #8b72ff;
+      --accent: #22d3ee;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --container: 1180px;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-            background: #0a0f1c;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(115,167,255,.16), transparent 24%),
+        radial-gradient(circle at 90% 15%, rgba(139,114,255,.14), transparent 24%),
+        linear-gradient(180deg, #040912 0%, #07101d 48%, #091322 100%);
+      overflow-x: hidden;
+    }
 
-        h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
+      pointer-events: none;
+      opacity: .4;
+    }
 
-        p {
-            color: #9aa4b2;
-        }
-    </style>
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(100% - 32px, var(--container));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(5, 11, 20, .72);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 900;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 12px 30px rgba(115,167,255,.25);
+    }
+
+    .brand-name {
+      font-size: 1.02rem;
+    }
+
+    .brand-name span {
+      color: var(--primary);
+    }
+
+    .btn {
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 16px 36px rgba(115,167,255,.20);
+    }
+
+    .hero {
+      min-height: calc(100vh - 78px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 48px 0;
+    }
+
+    .hero-card {
+      width: 100%;
+      max-width: 860px;
+      padding: 42px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 18%, rgba(115,167,255,.18), transparent 26%),
+        radial-gradient(circle at 15% 85%, rgba(139,114,255,.14), transparent 28%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      border: 1px solid rgba(115,167,255,.20);
+      background: rgba(115,167,255,.08);
+      color: #d9e7ff;
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(34,211,238,.12);
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -.05em;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    h1 .grad {
+      background: linear-gradient(135deg, #ffffff 0%, #b9d2ff 35%, #8fb2ff 65%, #a38bff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.12);
+    }
+
+    .footer-note {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: .92rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 640px) {
+      .hero-card { padding: 28px 22px; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .brand-name { font-size: .96rem; }
+    }
+  </style>
 </head>
 <body>
-    <div>
-        <h1>DATKEN</h1>
-        <p>Build your next enterprise platform on a stronger digital foundation.</p>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <div class="brand-mark">DK</div>
+        <div class="brand-name">DATKEN<span>.dev</span></div>
+      </a>
+
+      <a class="btn btn-primary" href="#">View on GitHub</a>
     </div>
+  </header>
+
+  <main class="hero">
+    <div class="container">
+      <!-- <section class="hero-card"> -->
+        <!-- <div class="eyebrow">Enterprise Technology • Platform Engineering</div> -->
+        <h1>
+          Build your next <span class="grad">enterprise platform</span> on a stronger digital foundation.
+        </h1>
+        <!-- <p class="subtitle">
+          DATKEN.dev creates secure, scalable, and modern digital platforms with a clean enterprise-focused approach.
+        </p> -->
+
+        <!-- <div class="actions">
+          <a class="btn btn-primary" href="#">Explore Project</a>
+          <a class="btn btn-secondary" href="#">Contact</a>
+        </div> -->
+
+        <div class="footer-note">Explore our code repository and interactive lab environment to build and test enterprise solutions.</div>
+          <!-- </section> -->
+        </div>
+
+  </main>
 </body>
 </html>
